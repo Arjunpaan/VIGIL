@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# C++ build artifacts
+cpp_engine/vigil.exe
+cpp_engine/*.o
+cpp_engine/build_log.txt
+
+# React
+dashboard/node_modules/
+dashboard/dist/
+
+# OS files
+.DS_Store
+Thumbs.db

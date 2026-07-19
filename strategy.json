@@ -1,0 +1,68 @@
+[
+  {
+    "type": "Assignment",
+    "name": "fast_ma",
+    "expression": {
+      "type": "FunctionCall",
+      "name": "moving_average",
+      "args": [
+        {
+          "type": "Identifier",
+          "name": "close"
+        },
+        {
+          "type": "NumberLiteral",
+          "value": 5.0
+        }
+      ]
+    }
+  },
+  {
+    "type": "Assignment",
+    "name": "slow_ma",
+    "expression": {
+      "type": "FunctionCall",
+      "name": "moving_average",
+      "args": [
+        {
+          "type": "Identifier",
+          "name": "close"
+        },
+        {
+          "type": "NumberLiteral",
+          "value": 20.0
+        }
+      ]
+    }
+  },
+  {
+    "type": "BuyStatement",
+    "condition": {
+      "type": "BinaryOp",
+      "left": {
+        "type": "Identifier",
+        "name": "fast_ma"
+      },
+      "operator": "crosses_above",
+      "right": {
+        "type": "Identifier",
+        "name": "slow_ma"
+      }
+    }
+  },
+  {
+    "type": "SellStatement",
+    "condition": {
+      "type": "BinaryOp",
+      "left": {
+        "type": "Identifier",
+        "name": "fast_ma"
+      },
+      "operator": "crosses_below",
+      "right": {
+        "type": "Identifier",
+        "name": "slow_ma"
+      }
+    }
+  }
+]
