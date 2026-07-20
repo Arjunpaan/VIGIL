@@ -1,5 +1,7 @@
 # VIGIL
 
+**[Live Dashboard →](https://vigil-beta-two.vercel.app/)**
+
 **A strategy backtesting engine with statistical decay detection.**
 
 VIGIL is a system for defining trading strategies in a custom-built language, testing them against real historical market data under strict correctness guarantees, and continuously monitoring them for statistical decay — the point at which a strategy's underlying edge quietly stops working, often long before cumulative losses make it obvious.
