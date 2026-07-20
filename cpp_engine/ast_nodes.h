@@ -44,4 +44,10 @@ struct SellStatement : ASTNode {
     ASTNodePtr condition;
 };
 
+struct LogicalOp : ASTNode {
+    ASTNodePtr left;
+    std::string op;
+    ASTNodePtr right;
+};
+
 #endif

@@ -15,6 +15,7 @@ private:
     std::vector<ASTNodePtr> program;
     std::map<std::string, double> env;
     std::map<std::string, double> prev_env;
+    std::map<std::string, double> current_bar;
     std::map<std::string, MovingAverage> stateful_objects;
     std::map<std::string, LookbackValue> lookback_objects;
 
@@ -76,40 +77,54 @@ private:
         throw std::runtime_error("Cannot evaluate node");
     }
 
-    bool eval_condition(const std::shared_ptr<BinaryOp>& node) {
-        auto left_id = std::dynamic_pointer_cast<Identifier>(node->left);
-        auto right_id = std::dynamic_pointer_cast<Identifier>(node->right);
-
-        std::optional<double> left = left_id ? 
-            (env.find(left_id->name) != env.end() ? std::optional<double>(env.at(left_id->name)) : std::nullopt)
-            : eval_expr(node->left, {}, "");
-
-        std::optional<double> right;
-        if (right_id) {
-            right = (env.find(right_id->name) != env.end()) ? std::optional<double>(env.at(right_id->name)) : std::nullopt;
-        } else {
-            right = eval_expr(node->right, {}, "");
+    bool eval_condition_node(const ASTNodePtr& node) {
+        if (auto logic = std::dynamic_pointer_cast<LogicalOp>(node)) {
+            bool left_result = eval_condition_node(logic->left);
+            bool right_result = eval_condition_node(logic->right);
+            if (logic->op == "and") return left_result && right_result;
+            if (logic->op == "or") return left_result || right_result;
+            throw std::runtime_error("Unknown logical operator: " + logic->op);
         }
+
+        auto bin = std::dynamic_pointer_cast<BinaryOp>(node);
+        if (!bin) throw std::runtime_error("Expected BinaryOp or LogicalOp");
+
+        auto left_id = std::dynamic_pointer_cast<Identifier>(bin->left);
+        auto right_id = std::dynamic_pointer_cast<Identifier>(bin->right);
+
+        auto lookup = [&](const std::shared_ptr<Identifier>& id) -> std::optional<double> {
+            auto bar_it = current_bar.find(id->name);
+            if (bar_it != current_bar.end()) return bar_it->second;
+            auto env_it = env.find(id->name);
+            if (env_it != env.end()) return env_it->second;
+            return std::nullopt;
+        };
+
+        std::optional<double> left = left_id ? lookup(left_id) : eval_expr(bin->left, current_bar, "");
+        std::optional<double> right = right_id ? lookup(right_id) : eval_expr(bin->right, current_bar, "");
 
         if (!left.has_value() || !right.has_value()) return false;
 
-        if (node->op == "<") return left.value() < right.value();
-        if (node->op == ">") return left.value() > right.value();
+        if (bin->op == "<") return left.value() < right.value();
+        if (bin->op == ">") return left.value() > right.value();
+        if (bin->op == "<=") return left.value() <= right.value();
+        if (bin->op == ">=") return left.value() >= right.value();
+        if (bin->op == "!=") return left.value() != right.value();
 
-        if (node->op == "crosses_above" || node->op == "crosses_below") {
+        if (bin->op == "crosses_above" || bin->op == "crosses_below") {
             if (!left_id || !right_id) return false;
             auto pl = prev_env.find(left_id->name);
             auto pr = prev_env.find(right_id->name);
             if (pl == prev_env.end() || pr == prev_env.end()) return false;
 
-            if (node->op == "crosses_above") {
+            if (bin->op == "crosses_above") {
                 return pl->second <= pr->second && left.value() > right.value();
             } else {
                 return pl->second >= pr->second && left.value() < right.value();
             }
         }
 
-        throw std::runtime_error("Unknown operator: " + node->op);
+        throw std::runtime_error("Unknown operator: " + bin->op);
     }
 
 public:
@@ -117,6 +132,7 @@ public:
 
     std::vector<std::string> run_bar(const std::map<std::string, double>& bar) {
         prev_env = env;
+        current_bar = bar;
         std::vector<std::string> signals;
 
         for (const auto& stmt : program) {
@@ -128,11 +144,9 @@ public:
                     env.erase(a->name);
                 }
             } else if (auto b = std::dynamic_pointer_cast<BuyStatement>(stmt)) {
-                auto cond = std::dynamic_pointer_cast<BinaryOp>(b->condition);
-                if (eval_condition(cond)) signals.push_back("BUY");
+                if (eval_condition_node(b->condition)) signals.push_back("BUY");
             } else if (auto s = std::dynamic_pointer_cast<SellStatement>(stmt)) {
-                auto cond = std::dynamic_pointer_cast<BinaryOp>(s->condition);
-                if (eval_condition(cond)) signals.push_back("SELL");
+                if (eval_condition_node(s->condition)) signals.push_back("SELL");
             }
         }
 

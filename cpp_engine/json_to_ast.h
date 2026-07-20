@@ -31,6 +31,15 @@ ASTNodePtr parse_node(const json& j) {
         return node;
     }
 
+    if (type == "LogicalOp") {
+        auto node = std::make_shared<LogicalOp>();
+        node->left = parse_node(j["left"]);
+        node->op = j["operator"];
+        node->right = parse_node(j["right"]);
+        return node;
+    }
+    
+
     if (type == "FunctionCall") {
         auto node = std::make_shared<FunctionCall>();
         node->name = j["name"];
