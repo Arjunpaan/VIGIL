@@ -1,7 +1,6 @@
 import json
 from dsl_lexer import tokenize
-from dsl_parser import Parser, Assignment, BuyStatement, SellStatement, BinaryOp, Identifier, NumberLiteral, FunctionCall
-
+from dsl_parser import Parser, Assignment, BuyStatement, SellStatement, BinaryOp, LogicalOp, Identifier, NumberLiteral, FunctionCall
 
 def node_to_dict(node):
     """Convert one AST node into a plain dict, ready for JSON serialization."""
@@ -28,6 +27,14 @@ def node_to_dict(node):
     if isinstance(node, BinaryOp):
         return {
             "type": "BinaryOp",
+            "left": node_to_dict(node.left),
+            "operator": node.operator,
+            "right": node_to_dict(node.right)
+        }
+
+    if isinstance(node, LogicalOp):
+        return {
+            "type": "LogicalOp",
             "left": node_to_dict(node.left),
             "operator": node.operator,
             "right": node_to_dict(node.right)
@@ -69,7 +76,7 @@ def compile_dsl_to_json(source_text, output_path):
 if __name__ == "__main__":
     source = """fast_ma = moving_average(close, 5)
 slow_ma = moving_average(close, 20)
-buy when fast_ma crosses_above slow_ma
+buy when fast_ma crosses_above slow_ma and close > 100
 sell when fast_ma crosses_below slow_ma"""
 
     compile_dsl_to_json(source, "strategy.json")

@@ -38,15 +38,31 @@
   {
     "type": "BuyStatement",
     "condition": {
-      "type": "BinaryOp",
+      "type": "LogicalOp",
       "left": {
-        "type": "Identifier",
-        "name": "fast_ma"
+        "type": "BinaryOp",
+        "left": {
+          "type": "Identifier",
+          "name": "fast_ma"
+        },
+        "operator": "crosses_above",
+        "right": {
+          "type": "Identifier",
+          "name": "slow_ma"
+        }
       },
-      "operator": "crosses_above",
+      "operator": "and",
       "right": {
-        "type": "Identifier",
-        "name": "slow_ma"
+        "type": "BinaryOp",
+        "left": {
+          "type": "Identifier",
+          "name": "close"
+        },
+        "operator": ">",
+        "right": {
+          "type": "NumberLiteral",
+          "value": 100.0
+        }
       }
     }
   },
