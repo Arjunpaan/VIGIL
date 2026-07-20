@@ -10,6 +10,16 @@ class BinaryOp:
     def __repr__(self):
         return f"BinaryOp({self.left!r} {self.operator!r} {self.right!r})"
 
+class LogicalOp:
+    """Represents: left AND/OR right, e.g. (a > b) and (c < d)"""
+    def __init__(self, left, operator, right):
+        self.left = left
+        self.operator = operator
+        self.right = right
+
+    def __repr__(self):
+        return f"LogicalOp({self.left!r} {self.operator!r} {self.right!r})"
+
 
 class Identifier:
     """Represents a name reference, e.g. fast_ma"""
@@ -102,30 +112,39 @@ class Parser:
             raise ValueError(f"Expected identifier or number, got {right_token}")
 
         return BinaryOp(left, operator, right)
+    
+    def parse_logical_condition(self):
+        left = self.parse_condition()
+
+        while self.current().type == TokenType.KEYWORD and self.current().value in ("and", "or"):
+            op_token = self.advance()
+            right = self.parse_condition()
+            left = LogicalOp(left, op_token.value, right)
+
+        return left
+
 
     def parse_statement(self):
         token = self.current()
 
         if token.type == TokenType.KEYWORD and token.value == "buy":
-            self.advance()  # consume 'buy'
+            self.advance()
             self.expect_keyword("when")
-            condition = self.parse_condition()
+            condition = self.parse_logical_condition()
             return BuyStatement(condition)
 
         if token.type == TokenType.KEYWORD and token.value == "sell":
-            self.advance()  # consume 'sell'
+            self.advance()
             self.expect_keyword("when")
-            condition = self.parse_condition()
+            condition = self.parse_logical_condition()
             return SellStatement(condition)
-
 
         if token.type == TokenType.IDENTIFIER:
             name = token.value
-            self.advance()  # consume the identifier
+            self.advance()
             self.expect_operator("=")
             expression = self.parse_value()
             return Assignment(name, expression)
-
 
         raise ValueError(f"Unexpected token at start of statement: {token}")
 
@@ -181,13 +200,8 @@ class Parser:
 
 
 if __name__ == "__main__":
-    source = """price_6mo_ago = price_n_days_ago(close, 126)
-pct_change = percent_change(close, price_6mo_ago)
-buy when pct_change < -10
-sell when pct_change > 0"""
-
+    source = "buy when close > 100 and volume >= 500"
     tokens = tokenize(source)
     parser = Parser(tokens)
-    program = parser.parse_program()
-    for stmt in program:
-        print(stmt)
+    stmt = parser.parse_statement()
+    print(stmt)

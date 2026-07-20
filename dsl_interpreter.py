@@ -1,6 +1,6 @@
 import pandas as pd
 from dsl_lexer import tokenize
-from dsl_parser import Parser, Assignment, BuyStatement, SellStatement, BinaryOp, Identifier, NumberLiteral, FunctionCall
+from dsl_parser import Parser, Assignment, BuyStatement, SellStatement, BinaryOp, LogicalOp, Identifier, NumberLiteral, FunctionCall
 from decay_detector import DecayDetector
 
 
@@ -39,9 +39,11 @@ class Interpreter:
         self.stateful_objects = {}
         self.lookback_objects = {}
         self.prev_env = {}
+        self.current_bar = {}
 
     def run_bar(self, bar):
         self.prev_env = dict(self.env)
+        self.current_bar = bar
         signals = []
 
         for stmt in self.program:
@@ -94,10 +96,23 @@ class Interpreter:
 
         raise ValueError(f"Cannot evaluate node: {node}")
 
-    def eval_condition(self, node: BinaryOp):
-        left = self.eval_expr(node.left, {}, None) if not isinstance(node.left, Identifier) else self.env.get(node.left.name)
-        right = self.eval_expr(node.right, {}, None) if not isinstance(node.right, Identifier) else self.env.get(node.right.name)
+    def eval_condition(self, node):
+        if isinstance(node, LogicalOp):
+            left_result = self.eval_condition(node.left)
+            right_result = self.eval_condition(node.right)
+            if node.operator == "and":
+                return left_result and right_result
+            if node.operator == "or":
+                return left_result or right_result
+            raise ValueError(f"Unknown logical operator: {node.operator}")
 
+        # node is a BinaryOp from here on
+        left = self.eval_expr(node.left, self.current_bar, None) if not isinstance(node.left, Identifier) else (
+            self.current_bar[node.left.name] if node.left.name in self.current_bar else self.env.get(node.left.name)
+        )
+        right = self.eval_expr(node.right, self.current_bar, None) if not isinstance(node.right, Identifier) else (
+            self.current_bar[node.right.name] if node.right.name in self.current_bar else self.env.get(node.right.name)
+        )
         if left is None or right is None:
             return False
 
@@ -105,6 +120,12 @@ class Interpreter:
             return left < right
         if node.operator == ">":
             return left > right
+        if node.operator == "<=":
+            return left <= right
+        if node.operator == ">=":
+            return left >= right
+        if node.operator == "!=":
+            return left != right
         if node.operator == "crosses_above":
             prev_left = self.prev_env.get(node.left.name)
             prev_right = self.prev_env.get(node.right.name)
@@ -119,7 +140,6 @@ class Interpreter:
             return prev_left >= prev_right and left < right
 
         raise ValueError(f"Unknown operator: {node.operator}")
-
 
 if __name__ == "__main__":
     source = """fast_ma = moving_average(close, 5)

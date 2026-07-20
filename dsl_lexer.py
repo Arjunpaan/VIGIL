@@ -22,7 +22,7 @@ class Token:
 
 
 
-KEYWORDS = {"strategy", "buy", "sell", "when"}
+KEYWORDS = {"strategy", "buy", "sell", "when", "and", "or"}
 WORD_OPERATORS = {"crosses_above", "crosses_below"}
 
 def tokenize(source: str):
@@ -91,13 +91,27 @@ def tokenize(source: str):
             i += 1
             continue
         if char == "<":
-            tokens.append(Token(TokenType.OPERATOR, char))
-            i += 1
+            if i + 1 < n and source[i+1] == "=":
+                tokens.append(Token(TokenType.OPERATOR, "<="))
+                i += 2
+            else:
+                tokens.append(Token(TokenType.OPERATOR, "<"))
+                i += 1
             continue
         if char == ">":
-            tokens.append(Token(TokenType.OPERATOR, char))
-            i += 1
+            if i + 1 < n and source[i+1] == "=":
+                tokens.append(Token(TokenType.OPERATOR, ">="))
+                i += 2
+            else:
+                tokens.append(Token(TokenType.OPERATOR, ">"))
+                i += 1
             continue
+        if char == "!":
+            if i + 1 < n and source[i+1] == "=":
+                tokens.append(Token(TokenType.OPERATOR, "!="))
+                i += 2
+                continue
+            raise ValueError(f"Unexpected character '!' at position {i}")
 
         # If we hit something we don't recognize, fail loudly rather than silently skip it
         raise ValueError(f"Unexpected character {char!r} at position {i}")
