@@ -9,6 +9,7 @@
 #include "data_loader.h"
 #include "decay_detector.h"
 #include "json.hpp"
+#include "market_feed.h"
 
 namespace fs = std::filesystem;
 using json = nlohmann::json;
@@ -36,7 +37,9 @@ BacktestResult run_backtest(const std::vector<ASTNodePtr>& program, const std::v
     const double SLIPPAGE_PCT = 0.05;
     const double COMMISSION_PCT = 0.03;
 
-    for (const auto& bar_row : bars) {
+    MarketDataFeed feed(bars);
+    while (feed.advance()) {
+        const PriceBar& bar_row = feed.current_bar();
         std::map<std::string, double> bar = {
             {"close", bar_row.close}, {"open", bar_row.open},
             {"high", bar_row.high}, {"low", bar_row.low}
