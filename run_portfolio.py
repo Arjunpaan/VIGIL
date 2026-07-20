@@ -32,7 +32,11 @@ def run_backtest(source, df):
     equity = 1.0
     equity_curve = []
 
-    for _, row in df.iterrows():
+    from market_feed import MarketDataFeed
+
+    feed = MarketDataFeed(df)
+    while feed.advance():
+        row = feed.current_bar()
         bar = {"close": row["Close"], "open": row["Open"], "high": row["High"], "low": row["Low"]}
         signals = interp.run_bar(bar)
 
