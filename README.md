@@ -48,7 +48,7 @@ sell when fast_ma crosses_below slow_ma
 
 This text is tokenized by a hand-written lexer, built into an Abstract Syntax Tree (AST) by a recursive-descent parser, and executed by a tree-walking interpreter with real state — for example, a moving average that remembers prior prices, or a crossover check that remembers the previous bar's values.
 
-**2. Two independent, cross-validated execution engines.** A Python reference implementation is built first for fast iteration. Its parser can serialize any parsed strategy's AST into JSON — a plain, language-agnostic format. A C++ engine loads that JSON, reconstructs an equivalent AST, and executes it generically, with no strategy-specific code. Both engines are validated against each other **trade-by-trade** across a 20-stock, 5-year portfolio (700+ trades), matching exactly on trade dates, P&L, Sharpe ratio, and max drawdown.
+**2. Two independent, cross-validated execution engines.** A Python reference implementation is built first for fast iteration. Its parser can serialize any parsed strategy's AST into JSON — a plain, language-agnostic format. A C++ engine loads that JSON, reconstructs an equivalent AST, and executes it generically, with no strategy-specific code. Both engines are validated against each other **trade-by-trade** across 49 stocks and 5 years of data (1,965+ trades), matching exactly on trade dates, P&L, Sharpe ratio, and max drawdown.
 
 **3. Realistic backtesting.** Every simulated trade accounts for slippage and commission costs. Risk is measured with standard metrics: Sharpe ratio, maximum drawdown, and win rate — computed independently in both engines.
 
@@ -56,7 +56,7 @@ This text is tokenized by a hand-written lexer, built into an Abstract Syntax Tr
 
 **5. A decay detector.** CUSUM (Cumulative Sum) change-point detection — implemented from scratch, not via a statistics library — monitors each strategy's win rate for sustained, statistically meaningful deviation from an established baseline, in both the Python and C++ engines.
 
-**6. A portfolio dashboard.** A React frontend presents live results across 20 real stocks and two structurally different strategies: equity curves, risk metrics, and a health score derived directly from decay detector output — including honest "insufficient data" states rather than false confidence when a strategy hasn't traded enough to judge.
+**6. A portfolio dashboard.** A React frontend presents live results across 49 real stocks and two structurally different strategies: equity curves, risk metrics, and a health score derived directly from decay detector output — including honest "insufficient data" states rather than false confidence when a strategy hasn't traded enough to judge.
 
 ---
 
@@ -151,11 +151,11 @@ A health score computed from very few trades is not meaningfully different from 
 
 ## Results
 
-Tested across 20 NSE-listed (Nifty 50) stocks, 2020–2025, two structurally different strategies:
+Tested across 49 NSE-listed (Nifty 50) stocks, 2020–2025, two structurally different strategies:
 
 | Strategy | Behavior observed |
 |---|---|
-| 5/20 moving-average crossover (momentum) | Inconsistent across stocks — win rates ranged from ~31% to ~59%. 13 of 20 stocks showed a detected win-rate shift (decay) over the test window. |
+| 5/20 moving-average crossover (momentum) | Inconsistent across stocks — win rates ranged from ~31% to ~63%. 35 of 49 stocks showed a detected win-rate shift (decay) over the test window. |
 | 6-month mean-reversion | High win rates on stocks where it triggered, but most stocks produced too few trades (1–8) for the result to be statistically meaningful — reported honestly as insufficient data rather than a false score. |
 
 These results are reported as-is, without cherry-picking. The goal of VIGIL was never to discover a strategy that reliably makes money — it was to build a system capable of evaluating *any* strategy honestly, including ones that perform inconsistently or fail outright. A backtester that only ever shows favorable results is a stronger signal of a bug (most often look-ahead bias) than of a good strategy.
@@ -185,7 +185,7 @@ VIGIL/
 ├── dsl_to_json.py          # Serializes a parsed AST to JSON for the C++ engine
 ├── run_portfolio.py        # Runs all strategies across the full stock portfolio
 ├── fetch_data.py           # Pulls historical OHLCV data
-├── data/                   # Historical price CSVs (20 stocks, 2020–2025)
+├── data/                   # Historical price CSVs (49 stocks, 2020–2025)
 │
 ├── cpp_engine/              # C++ production engine
 │   ├── ast_nodes.h          # AST node type definitions
@@ -232,7 +232,7 @@ pip install pandas numpy yfinance
 python fetch_data.py
 ```
 
-Downloads daily OHLCV data for 20 Nifty 50 stocks (2020–2025) into `data/`.
+Downloads daily OHLCV data for 49 Nifty 50 stocks (2020–2025) into `data/`.
 
 ### 4. Run the Python backtest across the full portfolio
 
@@ -282,7 +282,7 @@ Stated plainly, not glossed over:
 
 - Extend the DSL grammar with logical operators (`and`/`or`) and additional comparisons (`>=`, `!=`)
 - Automated unit test suite for the lexer, parser, and both interpreters
-- Full Nifty 50 coverage (currently 20 of 50 constituents)
+- 49 of 50 Nifty constituents (TATAMOTORS excluded due to a data provider symbol issue)
 - Live/streaming data ingestion, replacing the current batch-CSV replay model
 - Position sizing and portfolio-level risk allocation, rather than fixed single-unit trades
 
