@@ -1,11 +1,17 @@
 import yfinance as yf
 import os
 
-nifty_tickers = [
+nifty_50_tickers = [
     "RELIANCE.NS", "TCS.NS", "HDFCBANK.NS", "INFY.NS", "ICICIBANK.NS",
     "HINDUNILVR.NS", "SBIN.NS", "BHARTIARTL.NS", "KOTAKBANK.NS", "ITC.NS",
     "LT.NS", "AXISBANK.NS", "BAJFINANCE.NS", "ASIANPAINT.NS", "MARUTI.NS",
-    "SUNPHARMA.NS", "TITAN.NS", "ULTRACEMCO.NS", "WIPRO.NS", "NESTLEIND.NS"
+    "SUNPHARMA.NS", "TITAN.NS", "ULTRACEMCO.NS", "WIPRO.NS", "NESTLEIND.NS",
+    "HCLTECH.NS", "BAJAJFINSV.NS", "ADANIENT.NS", "POWERGRID.NS", "NTPC.NS",
+    "TATAMOTORS.NS", "TATASTEEL.NS", "JSWSTEEL.NS", "M&M.NS", "TECHM.NS",
+    "COALINDIA.NS", "GRASIM.NS", "HINDALCO.NS", "CIPLA.NS", "DRREDDY.NS",
+    "BRITANNIA.NS", "EICHERMOT.NS", "APOLLOHOSP.NS", "DIVISLAB.NS", "BPCL.NS",
+    "HEROMOTOCO.NS", "INDUSINDBK.NS", "SBILIFE.NS", "HDFCLIFE.NS", "BAJAJ-AUTO.NS",
+    "ADANIPORTS.NS", "ONGC.NS", "UPL.NS", "SHRIRAMFIN.NS", "TATACONSUM.NS"
 ]
 
 os.makedirs("data", exist_ok=True)
@@ -13,7 +19,7 @@ os.makedirs("data", exist_ok=True)
 successful = []
 failed = []
 
-for ticker in nifty_tickers:
+for ticker in nifty_50_tickers:
     try:
         data = yf.download(ticker, start="2020-01-01", end="2025-01-01", progress=False)
         if data.empty:
@@ -34,5 +40,5 @@ for ticker in nifty_tickers:
         failed.append(ticker)
 
 print(f"\n--- Summary ---")
-print(f"Success: {len(successful)} stocks -> {successful}")
+print(f"Success: {len(successful)} stocks")
 print(f"Failed: {len(failed)} stocks -> {failed}")

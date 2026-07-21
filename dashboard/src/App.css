@@ -1,1 +1,382 @@
-/* Styles are handled inline in App.jsx via the styles object */
+:root {
+  --bg: #08090c;
+  --panel: #12141a;
+  --panel-hover: #171a22;
+  --border: #1c1f28;
+  --border-bright: #2a2e3a;
+  --signal: #5eead4;
+  --signal-dim: #2dd4bf33;
+  --amber: #fbbf24;
+  --amber-dim: #fbbf2433;
+  --red: #f87171;
+  --red-dim: #f8717133;
+  --text: #e4e6ec;
+  --text-dim: #8b8fa3;
+  --text-faint: #565a6b;
+  --font-display: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.vigil-root {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, #5eead410, transparent),
+    var(--bg);
+  font-family: var(--font-display);
+  padding: 32px 40px 80px;
+}
+
+@media (max-width: 700px) {
+  .vigil-root { padding: 20px 16px 60px; }
+}
+
+/* ---------- Header ---------- */
+
+.vigil-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.vigil-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.vigil-wordmark {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--text);
+}
+
+.vigil-wordmark span {
+  color: var(--signal);
+}
+
+.vigil-tagline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vigil-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--signal);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vigil-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 8px var(--signal);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ---------- Panels ---------- */
+
+.vigil-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  animation: fade-up 0.5s ease backwards;
+}
+
+.vigil-panel-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vigil-panel-label::before {
+  content: '';
+  width: 3px;
+  height: 12px;
+  background: var(--signal);
+  display: inline-block;
+  border-radius: 1px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Overview stats ---------- */
+
+.vigil-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+}
+
+.vigil-overview-stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.vigil-overview-stat-value {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Selectors ---------- */
+
+.vigil-selector-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.vigil-selector-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.vigil-select {
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-bright);
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.vigil-select:hover, .vigil-select:focus {
+  border-color: var(--signal);
+  outline: none;
+}
+
+/* ---------- Stat cards ---------- */
+
+.vigil-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.vigil-stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  transition: border-color 0.2s, transform 0.2s;
+  animation: fade-up 0.5s ease backwards;
+}
+
+.vigil-stat-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+}
+
+.vigil-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.vigil-stat-value {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Health score / radar ---------- */
+
+.vigil-health-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.vigil-radar {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--panel);
+  border: 1px solid var(--border-bright);
+}
+
+.vigil-radar::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--sweep-color, var(--signal)) 15%, transparent 30%);
+  animation: radar-spin 3s linear infinite;
+  opacity: 0.6;
+}
+
+.vigil-radar::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vigil-radar-value {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.vigil-health-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.vigil-flag-list {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--font-mono);
+}
+
+.vigil-flag-list li {
+  margin-bottom: 4px;
+}
+
+/* ---------- Table ---------- */
+
+.vigil-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.vigil-table thead tr {
+  border-bottom: 1px solid var(--border-bright);
+}
+
+.vigil-table th {
+  text-align: left;
+  padding: 8px 10px;
+  color: var(--text-faint);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.vigil-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+
+.vigil-table tr.vigil-row-clickable {
+  cursor: pointer;
+  transition: background-color 0.12s;
+}
+
+.vigil-table tr.vigil-row-clickable:hover {
+  background: var(--panel-hover);
+}
+
+.vigil-table tr.vigil-row-selected {
+  background: var(--signal-dim);
+}
+
+.vigil-table tr.vigil-row-selected td:first-child {
+  border-left: 2px solid var(--signal);
+}
+
+/* ---------- Tooltip (recharts) ---------- */
+
+.recharts-default-tooltip {
+  font-family: var(--font-mono) !important;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .vigil-radar::before, .vigil-status-dot, .vigil-panel, .vigil-stat-card {
+    animation: none !important;
+  }
+}
