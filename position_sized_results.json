@@ -13,6 +13,13 @@
       "total_trades": 10,
       "stopped_out_trades": 5,
       "win_rate": 40.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 159058.50624147386,
+      "total_return_pct": 59.058506241473864,
+      "total_trades": 23,
+      "stopped_out_trades": 11,
+      "win_rate": 52.17391304347826
     }
   },
   "ADANIPORTS": {
@@ -29,6 +36,13 @@
       "total_trades": 9,
       "stopped_out_trades": 2,
       "win_rate": 77.77777777777779
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 148531.947896063,
+      "total_return_pct": 48.53194789606301,
+      "total_trades": 24,
+      "stopped_out_trades": 12,
+      "win_rate": 50.0
     }
   },
   "APOLLOHOSP": {
@@ -45,6 +59,13 @@
       "total_trades": 3,
       "stopped_out_trades": 1,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 131997.40814807697,
+      "total_return_pct": 31.997408148076968,
+      "total_trades": 26,
+      "stopped_out_trades": 11,
+      "win_rate": 53.84615384615385
     }
   },
   "ASIANPAINT": {
@@ -61,6 +82,13 @@
       "total_trades": 8,
       "stopped_out_trades": 4,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 90498.84260892605,
+      "total_return_pct": -9.501157391073955,
+      "total_trades": 24,
+      "stopped_out_trades": 15,
+      "win_rate": 37.5
     }
   },
   "AXISBANK": {
@@ -77,6 +105,13 @@
       "total_trades": 9,
       "stopped_out_trades": 3,
       "win_rate": 55.55555555555556
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 118964.27946754899,
+      "total_return_pct": 18.964279467548987,
+      "total_trades": 26,
+      "stopped_out_trades": 14,
+      "win_rate": 46.15384615384615
     }
   },
   "BAJAJ-AUTO": {
@@ -93,6 +128,13 @@
       "total_trades": 5,
       "stopped_out_trades": 2,
       "win_rate": 60.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 108876.13955441517,
+      "total_return_pct": 8.876139554415175,
+      "total_trades": 22,
+      "stopped_out_trades": 12,
+      "win_rate": 45.45454545454545
     }
   },
   "BAJAJFINSV": {
@@ -109,6 +151,13 @@
       "total_trades": 7,
       "stopped_out_trades": 5,
       "win_rate": 28.57142857142857
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 100848.85595150416,
+      "total_return_pct": 0.8488559515041562,
+      "total_trades": 30,
+      "stopped_out_trades": 19,
+      "win_rate": 36.666666666666664
     }
   },
   "BAJFINANCE": {
@@ -125,6 +174,13 @@
       "total_trades": 11,
       "stopped_out_trades": 6,
       "win_rate": 36.36363636363637
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 108673.17863158701,
+      "total_return_pct": 8.673178631587012,
+      "total_trades": 32,
+      "stopped_out_trades": 19,
+      "win_rate": 40.625
     }
   },
   "BHARTIARTL": {
@@ -141,6 +197,13 @@
       "total_trades": 3,
       "stopped_out_trades": 1,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 118418.6152027944,
+      "total_return_pct": 18.418615202794406,
+      "total_trades": 20,
+      "stopped_out_trades": 10,
+      "win_rate": 50.0
     }
   },
   "BPCL": {
@@ -157,6 +220,13 @@
       "total_trades": 10,
       "stopped_out_trades": 4,
       "win_rate": 60.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 125995.99701622078,
+      "total_return_pct": 25.995997016220773,
+      "total_trades": 26,
+      "stopped_out_trades": 14,
+      "win_rate": 46.15384615384615
     }
   },
   "BRITANNIA": {
@@ -173,6 +243,13 @@
       "total_trades": 3,
       "stopped_out_trades": 1,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 102205.34515831248,
+      "total_return_pct": 2.2053451583124843,
+      "total_trades": 23,
+      "stopped_out_trades": 12,
+      "win_rate": 47.82608695652174
     }
   },
   "CIPLA": {
@@ -189,6 +266,13 @@
       "total_trades": 1,
       "stopped_out_trades": 0,
       "win_rate": 100.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 110056.42999773615,
+      "total_return_pct": 10.056429997736153,
+      "total_trades": 21,
+      "stopped_out_trades": 8,
+      "win_rate": 61.904761904761905
     }
   },
   "COALINDIA": {
@@ -205,6 +289,13 @@
       "total_trades": 6,
       "stopped_out_trades": 4,
       "win_rate": 33.33333333333333
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 132637.21471267234,
+      "total_return_pct": 32.63721471267234,
+      "total_trades": 26,
+      "stopped_out_trades": 12,
+      "win_rate": 53.84615384615385
     }
   },
   "DIVISLAB": {
@@ -221,6 +312,13 @@
       "total_trades": 7,
       "stopped_out_trades": 4,
       "win_rate": 42.857142857142854
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 104415.56641071234,
+      "total_return_pct": 4.415566410712344,
+      "total_trades": 19,
+      "stopped_out_trades": 9,
+      "win_rate": 47.368421052631575
     }
   },
   "DRREDDY": {
@@ -237,6 +335,13 @@
       "total_trades": 5,
       "stopped_out_trades": 3,
       "win_rate": 40.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 154286.03826551998,
+      "total_return_pct": 54.28603826551998,
+      "total_trades": 24,
+      "stopped_out_trades": 8,
+      "win_rate": 66.66666666666666
     }
   },
   "EICHERMOT": {
@@ -253,6 +358,13 @@
       "total_trades": 7,
       "stopped_out_trades": 2,
       "win_rate": 71.42857142857143
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 180756.7915382436,
+      "total_return_pct": 80.75679153824359,
+      "total_trades": 25,
+      "stopped_out_trades": 7,
+      "win_rate": 72.0
     }
   },
   "GRASIM": {
@@ -269,6 +381,13 @@
       "total_trades": 7,
       "stopped_out_trades": 4,
       "win_rate": 42.857142857142854
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 125923.2946950849,
+      "total_return_pct": 25.9232946950849,
+      "total_trades": 26,
+      "stopped_out_trades": 13,
+      "win_rate": 50.0
     }
   },
   "HCLTECH": {
@@ -285,6 +404,13 @@
       "total_trades": 4,
       "stopped_out_trades": 3,
       "win_rate": 25.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 130055.72188414758,
+      "total_return_pct": 30.055721884147584,
+      "total_trades": 20,
+      "stopped_out_trades": 8,
+      "win_rate": 60.0
     }
   },
   "HDFCBANK": {
@@ -301,6 +427,13 @@
       "total_trades": 9,
       "stopped_out_trades": 3,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 111713.98373444754,
+      "total_return_pct": 11.713983734447538,
+      "total_trades": 25,
+      "stopped_out_trades": 12,
+      "win_rate": 48.0
     }
   },
   "HDFCLIFE": {
@@ -317,6 +450,13 @@
       "total_trades": 11,
       "stopped_out_trades": 7,
       "win_rate": 36.36363636363637
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 100501.2751828007,
+      "total_return_pct": 0.5012751828007022,
+      "total_trades": 27,
+      "stopped_out_trades": 15,
+      "win_rate": 44.44444444444444
     }
   },
   "HEROMOTOCO": {
@@ -333,6 +473,13 @@
       "total_trades": 10,
       "stopped_out_trades": 5,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 102036.95523394686,
+      "total_return_pct": 2.036955233946865,
+      "total_trades": 25,
+      "stopped_out_trades": 15,
+      "win_rate": 40.0
     }
   },
   "HINDALCO": {
@@ -349,6 +496,13 @@
       "total_trades": 9,
       "stopped_out_trades": 4,
       "win_rate": 55.55555555555556
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 174590.32642375724,
+      "total_return_pct": 74.59032642375725,
+      "total_trades": 32,
+      "stopped_out_trades": 17,
+      "win_rate": 46.875
     }
   },
   "HINDUNILVR": {
@@ -365,6 +519,13 @@
       "total_trades": 6,
       "stopped_out_trades": 3,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 109965.26814609703,
+      "total_return_pct": 9.965268146097033,
+      "total_trades": 23,
+      "stopped_out_trades": 11,
+      "win_rate": 47.82608695652174
     }
   },
   "ICICIBANK": {
@@ -381,6 +542,13 @@
       "total_trades": 6,
       "stopped_out_trades": 2,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 119597.73014231685,
+      "total_return_pct": 19.597730142316856,
+      "total_trades": 25,
+      "stopped_out_trades": 12,
+      "win_rate": 52.0
     }
   },
   "INDUSINDBK": {
@@ -397,6 +565,13 @@
       "total_trades": 13,
       "stopped_out_trades": 7,
       "win_rate": 38.46153846153847
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 150972.955249549,
+      "total_return_pct": 50.972955249549,
+      "total_trades": 35,
+      "stopped_out_trades": 22,
+      "win_rate": 37.142857142857146
     }
   },
   "INFY": {
@@ -413,6 +588,13 @@
       "total_trades": 5,
       "stopped_out_trades": 2,
       "win_rate": 60.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 105886.40566949996,
+      "total_return_pct": 5.886405669499959,
+      "total_trades": 22,
+      "stopped_out_trades": 11,
+      "win_rate": 50.0
     }
   },
   "ITC": {
@@ -429,6 +611,13 @@
       "total_trades": 1,
       "stopped_out_trades": 0,
       "win_rate": 100.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 131356.51759319124,
+      "total_return_pct": 31.356517593191235,
+      "total_trades": 23,
+      "stopped_out_trades": 10,
+      "win_rate": 56.52173913043478
     }
   },
   "JSWSTEEL": {
@@ -445,6 +634,13 @@
       "total_trades": 8,
       "stopped_out_trades": 2,
       "win_rate": 75.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 122564.26786516859,
+      "total_return_pct": 22.564267865168585,
+      "total_trades": 23,
+      "stopped_out_trades": 11,
+      "win_rate": 52.17391304347826
     }
   },
   "KOTAKBANK": {
@@ -461,6 +657,13 @@
       "total_trades": 11,
       "stopped_out_trades": 3,
       "win_rate": 54.54545454545454
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 113304.9313539739,
+      "total_return_pct": 13.304931353973895,
+      "total_trades": 23,
+      "stopped_out_trades": 11,
+      "win_rate": 52.17391304347826
     }
   },
   "LT": {
@@ -477,6 +680,13 @@
       "total_trades": 3,
       "stopped_out_trades": 1,
       "win_rate": 33.33333333333333
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 141881.42326155314,
+      "total_return_pct": 41.88142326155314,
+      "total_trades": 25,
+      "stopped_out_trades": 10,
+      "win_rate": 60.0
     }
   },
   "M&M": {
@@ -493,6 +703,13 @@
       "total_trades": 2,
       "stopped_out_trades": 0,
       "win_rate": 100.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 143891.47947091848,
+      "total_return_pct": 43.891479470918476,
+      "total_trades": 25,
+      "stopped_out_trades": 11,
+      "win_rate": 56.00000000000001
     }
   },
   "MARUTI": {
@@ -509,6 +726,13 @@
       "total_trades": 7,
       "stopped_out_trades": 3,
       "win_rate": 57.14285714285714
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 131517.40482649495,
+      "total_return_pct": 31.517404826494953,
+      "total_trades": 28,
+      "stopped_out_trades": 12,
+      "win_rate": 53.57142857142857
     }
   },
   "NESTLEIND": {
@@ -525,6 +749,13 @@
       "total_trades": 4,
       "stopped_out_trades": 2,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 121874.99478812746,
+      "total_return_pct": 21.874994788127456,
+      "total_trades": 22,
+      "stopped_out_trades": 8,
+      "win_rate": 63.63636363636363
     }
   },
   "NTPC": {
@@ -541,6 +772,13 @@
       "total_trades": 3,
       "stopped_out_trades": 1,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 142911.4654928103,
+      "total_return_pct": 42.911465492810294,
+      "total_trades": 21,
+      "stopped_out_trades": 8,
+      "win_rate": 61.904761904761905
     }
   },
   "ONGC": {
@@ -557,6 +795,13 @@
       "total_trades": 6,
       "stopped_out_trades": 1,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 107347.35021222578,
+      "total_return_pct": 7.347350212225779,
+      "total_trades": 20,
+      "stopped_out_trades": 13,
+      "win_rate": 35.0
     }
   },
   "POWERGRID": {
@@ -573,6 +818,13 @@
       "total_trades": 3,
       "stopped_out_trades": 0,
       "win_rate": 100.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 151855.91237529626,
+      "total_return_pct": 51.85591237529626,
+      "total_trades": 16,
+      "stopped_out_trades": 2,
+      "win_rate": 87.5
     }
   },
   "RELIANCE": {
@@ -589,6 +841,13 @@
       "total_trades": 6,
       "stopped_out_trades": 2,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 100042.74792539656,
+      "total_return_pct": 0.04274792539655755,
+      "total_trades": 27,
+      "stopped_out_trades": 15,
+      "win_rate": 44.44444444444444
     }
   },
   "SBILIFE": {
@@ -605,6 +864,13 @@
       "total_trades": 3,
       "stopped_out_trades": 0,
       "win_rate": 66.66666666666666
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 120172.81363104327,
+      "total_return_pct": 20.172813631043272,
+      "total_trades": 25,
+      "stopped_out_trades": 13,
+      "win_rate": 48.0
     }
   },
   "SBIN": {
@@ -620,6 +886,13 @@
       "total_return_pct": 0.20073784107470422,
       "total_trades": 4,
       "stopped_out_trades": 1,
+      "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 114869.44317697195,
+      "total_return_pct": 14.869443176971952,
+      "total_trades": 30,
+      "stopped_out_trades": 15,
       "win_rate": 50.0
     }
   },
@@ -637,6 +910,13 @@
       "total_trades": 11,
       "stopped_out_trades": 4,
       "win_rate": 63.63636363636363
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 191319.93351575962,
+      "total_return_pct": 91.31993351575962,
+      "total_trades": 24,
+      "stopped_out_trades": 11,
+      "win_rate": 54.166666666666664
     }
   },
   "SUNPHARMA": {
@@ -653,6 +933,13 @@
       "total_trades": 0,
       "stopped_out_trades": 0,
       "win_rate": 0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 130230.14833436867,
+      "total_return_pct": 30.23014833436867,
+      "total_trades": 20,
+      "stopped_out_trades": 6,
+      "win_rate": 70.0
     }
   },
   "TATACONSUM": {
@@ -669,6 +956,13 @@
       "total_trades": 5,
       "stopped_out_trades": 2,
       "win_rate": 60.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 100930.44119288053,
+      "total_return_pct": 0.9304411928805347,
+      "total_trades": 21,
+      "stopped_out_trades": 14,
+      "win_rate": 33.33333333333333
     }
   },
   "TATASTEEL": {
@@ -685,6 +979,13 @@
       "total_trades": 12,
       "stopped_out_trades": 7,
       "win_rate": 41.66666666666667
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 116750.643099616,
+      "total_return_pct": 16.750643099616006,
+      "total_trades": 27,
+      "stopped_out_trades": 15,
+      "win_rate": 44.44444444444444
     }
   },
   "TCS": {
@@ -701,6 +1002,13 @@
       "total_trades": 2,
       "stopped_out_trades": 1,
       "win_rate": 50.0
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 123725.45432382105,
+      "total_return_pct": 23.725454323821047,
+      "total_trades": 22,
+      "stopped_out_trades": 7,
+      "win_rate": 68.18181818181817
     }
   },
   "TECHM": {
@@ -717,6 +1025,13 @@
       "total_trades": 6,
       "stopped_out_trades": 4,
       "win_rate": 33.33333333333333
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 104632.15198237932,
+      "total_return_pct": 4.6321519823793205,
+      "total_trades": 22,
+      "stopped_out_trades": 14,
+      "win_rate": 36.36363636363637
     }
   },
   "TITAN": {
@@ -733,6 +1048,13 @@
       "total_trades": 7,
       "stopped_out_trades": 3,
       "win_rate": 57.14285714285714
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 122461.27519581308,
+      "total_return_pct": 22.461275195813084,
+      "total_trades": 22,
+      "stopped_out_trades": 10,
+      "win_rate": 54.54545454545454
     }
   },
   "ULTRACEMCO": {
@@ -749,6 +1071,13 @@
       "total_trades": 6,
       "stopped_out_trades": 4,
       "win_rate": 33.33333333333333
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 115233.7025754263,
+      "total_return_pct": 15.2337025754263,
+      "total_trades": 22,
+      "stopped_out_trades": 12,
+      "win_rate": 45.45454545454545
     }
   },
   "UPL": {
@@ -765,6 +1094,13 @@
       "total_trades": 13,
       "stopped_out_trades": 7,
       "win_rate": 46.15384615384615
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 124037.31771416147,
+      "total_return_pct": 24.03731771416147,
+      "total_trades": 31,
+      "stopped_out_trades": 17,
+      "win_rate": 45.16129032258064
     }
   },
   "WIPRO": {
@@ -781,6 +1117,13 @@
       "total_trades": 9,
       "stopped_out_trades": 6,
       "win_rate": 33.33333333333333
+    },
+    "rsi_oversold_overbought": {
+      "final_equity": 111125.08789069591,
+      "total_return_pct": 11.125087890695912,
+      "total_trades": 32,
+      "stopped_out_trades": 17,
+      "win_rate": 46.875
     }
   }
 }

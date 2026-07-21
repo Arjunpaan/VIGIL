@@ -31,6 +31,47 @@ class LookbackValue:
             return None
         return self.history[0]
 
+class RSI:
+    """
+    Relative Strength Index — measures momentum via the ratio of average
+    gains to average losses over a rolling window. Classic values:
+    RSI < 30 = oversold, RSI > 70 = overbought.
+    """
+    def __init__(self, window=14):
+        self.window = window
+        self.prev_price = None
+        self.gains = []
+        self.losses = []
+
+    def update(self, price):
+        if self.prev_price is None:
+            self.prev_price = price
+            return None  # no prior price yet, can't compute a change
+
+        change = price - self.prev_price
+        self.prev_price = price
+
+        gain = max(change, 0)
+        loss = max(-change, 0)
+
+        self.gains.append(gain)
+        self.losses.append(loss)
+        if len(self.gains) > self.window:
+            self.gains.pop(0)
+            self.losses.pop(0)
+
+        if len(self.gains) < self.window:
+            return None  # not enough history yet
+
+        avg_gain = sum(self.gains) / self.window
+        avg_loss = sum(self.losses) / self.window
+
+        if avg_loss == 0:
+            return 100.0  # no losses at all in the window — maximally overbought
+
+        rs = avg_gain / avg_loss
+        rsi = 100 - (100 / (1 + rs))
+        return rsi
 
 class Interpreter:
     def __init__(self, program):
@@ -38,6 +79,7 @@ class Interpreter:
         self.env = {}
         self.stateful_objects = {}
         self.lookback_objects = {}
+        self.rsi_objects = {}
         self.prev_env = {}
         self.current_bar = {}
 
@@ -92,7 +134,27 @@ class Interpreter:
                     return None
                 return (a - b) / b * 100
 
+            if node.name == "rsi":
+                source = self.eval_expr(node.args[0], bar, var_name)
+                window = int(node.args[1].value)
+                if var_name not in self.rsi_objects:
+                    self.rsi_objects[var_name] = RSI(window)
+                if source is None:
+                    return None
+                return self.rsi_objects[var_name].update(source)
+
             raise ValueError(f"Unknown function: {node.name}")
+
+        raise ValueError(f"Cannot evaluate node: {node}")
+
+        if node.name == "rsi":
+                source = self.eval_expr(node.args[0], bar, var_name)
+                window = int(node.args[1].value)
+                if var_name not in self.rsi_objects:
+                    self.rsi_objects[var_name] = RSI(window)
+                if source is None:
+                    return None
+                return self.rsi_objects[var_name].update(source)
 
         raise ValueError(f"Cannot evaluate node: {node}")
 

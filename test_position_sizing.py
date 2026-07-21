@@ -3,7 +3,7 @@ from run_portfolio import run_backtest_with_position_sizing, STRATEGIES
 
 df = pd.read_csv("data/RELIANCE_daily.csv")
 trades, equity_curve, final_equity = run_backtest_with_position_sizing(
-    STRATEGIES["momentum_crossover_5_20"], df,
+    STRATEGIES["rsi_oversold_overbought"], df,
     starting_equity=100000, risk_per_trade_pct=0.02, stop_loss_pct=0.05
 )
 

@@ -15,7 +15,11 @@ sell when fast_ma crosses_below slow_ma""",
     "mean_reversion_6mo": """price_6mo_ago = price_n_days_ago(close, 126)
 pct_change = percent_change(close, price_6mo_ago)
 buy when pct_change < -10
-sell when pct_change > 0"""
+sell when pct_change > 0""",
+
+    "rsi_oversold_overbought": """rsi_val = rsi(close, 14)
+buy when rsi_val < 30
+sell when rsi_val > 70"""
 }
 
 SLIPPAGE_PCT = 0.05
@@ -192,7 +196,6 @@ def run_backtest_with_position_sizing(source, df, starting_equity=100000, risk_p
     return trades, equity_curve, equity
 
 def run_position_sized_portfolio():
-    import os
     data_dir = "data"
     csv_files = [f for f in os.listdir(data_dir) if f.endswith("_daily.csv")]
 
@@ -204,7 +207,8 @@ def run_position_sized_portfolio():
 
         for strategy_name, strategy_source in STRATEGIES.items():
             trades, equity_curve, final_equity = run_backtest_with_position_sizing(
-                strategy_source, df, starting_equity=100000, risk_per_trade_pct=0.02, stop_loss_pct=0.05
+                strategy_source, df,
+                starting_equity=100000, risk_per_trade_pct=0.02, stop_loss_pct=0.05
             )
             stop_outs = len([t for t in trades if t.get("exit_reason") == "stop_loss"])
             results[ticker][strategy_name] = {
@@ -214,7 +218,7 @@ def run_position_sized_portfolio():
                 "stopped_out_trades": stop_outs,
                 "win_rate": (len([t for t in trades if t["win"] == 1]) / len(trades) * 100) if trades else 0
             }
-            print(f"{ticker} / {strategy_name}: ₹{final_equity:,.0f} final ({results[ticker][strategy_name]['total_return_pct']:+.1f}%), {stop_outs} stop-outs")
+            print(f"{ticker} / {strategy_name}: Rs {final_equity:,.0f} final ({results[ticker][strategy_name]['total_return_pct']:+.1f}%), {stop_outs} stop-outs")
 
     with open("position_sized_results.json", "w") as f:
         json.dump(results, f, indent=2)
@@ -224,3 +228,5 @@ def run_position_sized_portfolio():
 if __name__ == "__main__":
     main()
     run_position_sized_portfolio()
+
+    
