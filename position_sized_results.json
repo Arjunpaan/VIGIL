@@ -1,0 +1,786 @@
+{
+  "ADANIENT": {
+    "momentum_crossover_5_20": {
+      "final_equity": 348366.2183325524,
+      "total_return_pct": 248.3662183325524,
+      "total_trades": 32,
+      "stopped_out_trades": 9,
+      "win_rate": 40.625
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 169131.0892678176,
+      "total_return_pct": 69.13108926781759,
+      "total_trades": 10,
+      "stopped_out_trades": 5,
+      "win_rate": 40.0
+    }
+  },
+  "ADANIPORTS": {
+    "momentum_crossover_5_20": {
+      "final_equity": 173076.86533331455,
+      "total_return_pct": 73.07686533331454,
+      "total_trades": 36,
+      "stopped_out_trades": 11,
+      "win_rate": 44.44444444444444
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 155232.13862936333,
+      "total_return_pct": 55.23213862936333,
+      "total_trades": 9,
+      "stopped_out_trades": 2,
+      "win_rate": 77.77777777777779
+    }
+  },
+  "APOLLOHOSP": {
+    "momentum_crossover_5_20": {
+      "final_equity": 145714.66802912814,
+      "total_return_pct": 45.714668029128134,
+      "total_trades": 41,
+      "stopped_out_trades": 6,
+      "win_rate": 46.34146341463415
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 113067.58017002116,
+      "total_return_pct": 13.06758017002116,
+      "total_trades": 3,
+      "stopped_out_trades": 1,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "ASIANPAINT": {
+    "momentum_crossover_5_20": {
+      "final_equity": 110954.96802484774,
+      "total_return_pct": 10.954968024847737,
+      "total_trades": 37,
+      "stopped_out_trades": 6,
+      "win_rate": 32.432432432432435
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 115968.00811904701,
+      "total_return_pct": 15.968008119047008,
+      "total_trades": 8,
+      "stopped_out_trades": 4,
+      "win_rate": 50.0
+    }
+  },
+  "AXISBANK": {
+    "momentum_crossover_5_20": {
+      "final_equity": 111626.83758851464,
+      "total_return_pct": 11.626837588514638,
+      "total_trades": 41,
+      "stopped_out_trades": 5,
+      "win_rate": 39.02439024390244
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 117007.32969166065,
+      "total_return_pct": 17.00732969166065,
+      "total_trades": 9,
+      "stopped_out_trades": 3,
+      "win_rate": 55.55555555555556
+    }
+  },
+  "BAJAJ-AUTO": {
+    "momentum_crossover_5_20": {
+      "final_equity": 184001.32598143365,
+      "total_return_pct": 84.00132598143365,
+      "total_trades": 32,
+      "stopped_out_trades": 3,
+      "win_rate": 56.25
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 110404.28149747023,
+      "total_return_pct": 10.404281497470235,
+      "total_trades": 5,
+      "stopped_out_trades": 2,
+      "win_rate": 60.0
+    }
+  },
+  "BAJAJFINSV": {
+    "momentum_crossover_5_20": {
+      "final_equity": 157785.61946649043,
+      "total_return_pct": 57.78561946649043,
+      "total_trades": 35,
+      "stopped_out_trades": 7,
+      "win_rate": 31.428571428571427
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 116208.65069970346,
+      "total_return_pct": 16.20865069970346,
+      "total_trades": 7,
+      "stopped_out_trades": 5,
+      "win_rate": 28.57142857142857
+    }
+  },
+  "BAJFINANCE": {
+    "momentum_crossover_5_20": {
+      "final_equity": 156324.93795063332,
+      "total_return_pct": 56.32493795063333,
+      "total_trades": 33,
+      "stopped_out_trades": 8,
+      "win_rate": 42.42424242424242
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 115890.89106884478,
+      "total_return_pct": 15.890891068844779,
+      "total_trades": 11,
+      "stopped_out_trades": 6,
+      "win_rate": 36.36363636363637
+    }
+  },
+  "BHARTIARTL": {
+    "momentum_crossover_5_20": {
+      "final_equity": 144313.5229103661,
+      "total_return_pct": 44.313522910366096,
+      "total_trades": 40,
+      "stopped_out_trades": 3,
+      "win_rate": 50.0
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 118482.60203222797,
+      "total_return_pct": 18.482602032227966,
+      "total_trades": 3,
+      "stopped_out_trades": 1,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "BPCL": {
+    "momentum_crossover_5_20": {
+      "final_equity": 115840.51696822813,
+      "total_return_pct": 15.840516968228128,
+      "total_trades": 39,
+      "stopped_out_trades": 10,
+      "win_rate": 30.76923076923077
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 114969.61022161998,
+      "total_return_pct": 14.96961022161998,
+      "total_trades": 10,
+      "stopped_out_trades": 4,
+      "win_rate": 60.0
+    }
+  },
+  "BRITANNIA": {
+    "momentum_crossover_5_20": {
+      "final_equity": 128836.88065601172,
+      "total_return_pct": 28.836880656011722,
+      "total_trades": 34,
+      "stopped_out_trades": 3,
+      "win_rate": 50.0
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 109658.56160735476,
+      "total_return_pct": 9.658561607354757,
+      "total_trades": 3,
+      "stopped_out_trades": 1,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "CIPLA": {
+    "momentum_crossover_5_20": {
+      "final_equity": 136810.0669391177,
+      "total_return_pct": 36.81006693911771,
+      "total_trades": 39,
+      "stopped_out_trades": 6,
+      "win_rate": 38.46153846153847
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 107460.00876145136,
+      "total_return_pct": 7.460008761451362,
+      "total_trades": 1,
+      "stopped_out_trades": 0,
+      "win_rate": 100.0
+    }
+  },
+  "COALINDIA": {
+    "momentum_crossover_5_20": {
+      "final_equity": 145230.12572553108,
+      "total_return_pct": 45.23012572553108,
+      "total_trades": 35,
+      "stopped_out_trades": 10,
+      "win_rate": 34.285714285714285
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 99844.01051421135,
+      "total_return_pct": -0.15598948578865382,
+      "total_trades": 6,
+      "stopped_out_trades": 4,
+      "win_rate": 33.33333333333333
+    }
+  },
+  "DIVISLAB": {
+    "momentum_crossover_5_20": {
+      "final_equity": 131559.43624890535,
+      "total_return_pct": 31.55943624890535,
+      "total_trades": 40,
+      "stopped_out_trades": 7,
+      "win_rate": 32.5
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 106646.40894844393,
+      "total_return_pct": 6.6464089484439315,
+      "total_trades": 7,
+      "stopped_out_trades": 4,
+      "win_rate": 42.857142857142854
+    }
+  },
+  "DRREDDY": {
+    "momentum_crossover_5_20": {
+      "final_equity": 132121.91414318333,
+      "total_return_pct": 32.121914143183325,
+      "total_trades": 33,
+      "stopped_out_trades": 3,
+      "win_rate": 48.484848484848484
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 108540.90583193651,
+      "total_return_pct": 8.540905831936515,
+      "total_trades": 5,
+      "stopped_out_trades": 3,
+      "win_rate": 40.0
+    }
+  },
+  "EICHERMOT": {
+    "momentum_crossover_5_20": {
+      "final_equity": 124265.58071992549,
+      "total_return_pct": 24.26558071992549,
+      "total_trades": 39,
+      "stopped_out_trades": 8,
+      "win_rate": 38.46153846153847
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 123718.55257472736,
+      "total_return_pct": 23.718552574727365,
+      "total_trades": 7,
+      "stopped_out_trades": 2,
+      "win_rate": 71.42857142857143
+    }
+  },
+  "GRASIM": {
+    "momentum_crossover_5_20": {
+      "final_equity": 163858.9333520354,
+      "total_return_pct": 63.85893335203541,
+      "total_trades": 33,
+      "stopped_out_trades": 2,
+      "win_rate": 45.45454545454545
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 115216.16060319681,
+      "total_return_pct": 15.21616060319681,
+      "total_trades": 7,
+      "stopped_out_trades": 4,
+      "win_rate": 42.857142857142854
+    }
+  },
+  "HCLTECH": {
+    "momentum_crossover_5_20": {
+      "final_equity": 148446.56152297274,
+      "total_return_pct": 48.44656152297274,
+      "total_trades": 31,
+      "stopped_out_trades": 2,
+      "win_rate": 54.83870967741935
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 101479.3698961321,
+      "total_return_pct": 1.479369896132106,
+      "total_trades": 4,
+      "stopped_out_trades": 3,
+      "win_rate": 25.0
+    }
+  },
+  "HDFCBANK": {
+    "momentum_crossover_5_20": {
+      "final_equity": 101747.95186191973,
+      "total_return_pct": 1.7479518619197332,
+      "total_trades": 41,
+      "stopped_out_trades": 5,
+      "win_rate": 36.58536585365854
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 113995.54873937502,
+      "total_return_pct": 13.995548739375021,
+      "total_trades": 9,
+      "stopped_out_trades": 3,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "HDFCLIFE": {
+    "momentum_crossover_5_20": {
+      "final_equity": 115763.19901022156,
+      "total_return_pct": 15.763199010221566,
+      "total_trades": 34,
+      "stopped_out_trades": 4,
+      "win_rate": 44.11764705882353
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 106270.58066887528,
+      "total_return_pct": 6.270580668875278,
+      "total_trades": 11,
+      "stopped_out_trades": 7,
+      "win_rate": 36.36363636363637
+    }
+  },
+  "HEROMOTOCO": {
+    "momentum_crossover_5_20": {
+      "final_equity": 115187.58643084033,
+      "total_return_pct": 15.187586430840325,
+      "total_trades": 37,
+      "stopped_out_trades": 5,
+      "win_rate": 35.13513513513514
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 108662.59085206904,
+      "total_return_pct": 8.662590852069043,
+      "total_trades": 10,
+      "stopped_out_trades": 5,
+      "win_rate": 50.0
+    }
+  },
+  "HINDALCO": {
+    "momentum_crossover_5_20": {
+      "final_equity": 154593.54548905283,
+      "total_return_pct": 54.59354548905283,
+      "total_trades": 32,
+      "stopped_out_trades": 7,
+      "win_rate": 53.125
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 129662.12876473567,
+      "total_return_pct": 29.66212876473567,
+      "total_trades": 9,
+      "stopped_out_trades": 4,
+      "win_rate": 55.55555555555556
+    }
+  },
+  "HINDUNILVR": {
+    "momentum_crossover_5_20": {
+      "final_equity": 114195.17421803519,
+      "total_return_pct": 14.195174218035186,
+      "total_trades": 31,
+      "stopped_out_trades": 1,
+      "win_rate": 41.935483870967744
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 109324.2546772522,
+      "total_return_pct": 9.324254677252204,
+      "total_trades": 6,
+      "stopped_out_trades": 3,
+      "win_rate": 50.0
+    }
+  },
+  "ICICIBANK": {
+    "momentum_crossover_5_20": {
+      "final_equity": 137872.64174133362,
+      "total_return_pct": 37.87264174133362,
+      "total_trades": 37,
+      "stopped_out_trades": 4,
+      "win_rate": 48.64864864864865
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 111692.93076238198,
+      "total_return_pct": 11.692930762381977,
+      "total_trades": 6,
+      "stopped_out_trades": 2,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "INDUSINDBK": {
+    "momentum_crossover_5_20": {
+      "final_equity": 95637.86972226319,
+      "total_return_pct": -4.362130277736811,
+      "total_trades": 40,
+      "stopped_out_trades": 13,
+      "win_rate": 37.5
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 112853.48011066786,
+      "total_return_pct": 12.853480110667864,
+      "total_trades": 13,
+      "stopped_out_trades": 7,
+      "win_rate": 38.46153846153847
+    }
+  },
+  "INFY": {
+    "momentum_crossover_5_20": {
+      "final_equity": 149445.51664348997,
+      "total_return_pct": 49.445516643489974,
+      "total_trades": 32,
+      "stopped_out_trades": 6,
+      "win_rate": 59.375
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 113103.83033932532,
+      "total_return_pct": 13.103830339325315,
+      "total_trades": 5,
+      "stopped_out_trades": 2,
+      "win_rate": 60.0
+    }
+  },
+  "ITC": {
+    "momentum_crossover_5_20": {
+      "final_equity": 127475.47771667091,
+      "total_return_pct": 27.47547771667091,
+      "total_trades": 36,
+      "stopped_out_trades": 4,
+      "win_rate": 36.11111111111111
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 101981.67877568593,
+      "total_return_pct": 1.9816787756859264,
+      "total_trades": 1,
+      "stopped_out_trades": 0,
+      "win_rate": 100.0
+    }
+  },
+  "JSWSTEEL": {
+    "momentum_crossover_5_20": {
+      "final_equity": 146502.8017724104,
+      "total_return_pct": 46.5028017724104,
+      "total_trades": 43,
+      "stopped_out_trades": 12,
+      "win_rate": 34.883720930232556
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 145474.97962701536,
+      "total_return_pct": 45.47497962701536,
+      "total_trades": 8,
+      "stopped_out_trades": 2,
+      "win_rate": 75.0
+    }
+  },
+  "KOTAKBANK": {
+    "momentum_crossover_5_20": {
+      "final_equity": 96966.79179867495,
+      "total_return_pct": -3.0332082013250474,
+      "total_trades": 42,
+      "stopped_out_trades": 6,
+      "win_rate": 30.952380952380953
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 120615.82040997164,
+      "total_return_pct": 20.61582040997164,
+      "total_trades": 11,
+      "stopped_out_trades": 3,
+      "win_rate": 54.54545454545454
+    }
+  },
+  "LT": {
+    "momentum_crossover_5_20": {
+      "final_equity": 145487.5370772052,
+      "total_return_pct": 45.4875370772052,
+      "total_trades": 34,
+      "stopped_out_trades": 6,
+      "win_rate": 35.294117647058826
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 105355.43764046193,
+      "total_return_pct": 5.355437640461925,
+      "total_trades": 3,
+      "stopped_out_trades": 1,
+      "win_rate": 33.33333333333333
+    }
+  },
+  "M&M": {
+    "momentum_crossover_5_20": {
+      "final_equity": 142945.06050761265,
+      "total_return_pct": 42.94506050761265,
+      "total_trades": 34,
+      "stopped_out_trades": 7,
+      "win_rate": 50.0
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 105168.53712192741,
+      "total_return_pct": 5.168537121927409,
+      "total_trades": 2,
+      "stopped_out_trades": 0,
+      "win_rate": 100.0
+    }
+  },
+  "MARUTI": {
+    "momentum_crossover_5_20": {
+      "final_equity": 107977.00758537548,
+      "total_return_pct": 7.977007585375483,
+      "total_trades": 41,
+      "stopped_out_trades": 4,
+      "win_rate": 36.58536585365854
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 112674.05417124474,
+      "total_return_pct": 12.674054171244745,
+      "total_trades": 7,
+      "stopped_out_trades": 3,
+      "win_rate": 57.14285714285714
+    }
+  },
+  "NESTLEIND": {
+    "momentum_crossover_5_20": {
+      "final_equity": 107146.68020198566,
+      "total_return_pct": 7.146680201985656,
+      "total_trades": 38,
+      "stopped_out_trades": 3,
+      "win_rate": 36.84210526315789
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 104827.09915693148,
+      "total_return_pct": 4.827099156931479,
+      "total_trades": 4,
+      "stopped_out_trades": 2,
+      "win_rate": 50.0
+    }
+  },
+  "NTPC": {
+    "momentum_crossover_5_20": {
+      "final_equity": 146963.37500876831,
+      "total_return_pct": 46.96337500876832,
+      "total_trades": 39,
+      "stopped_out_trades": 4,
+      "win_rate": 46.15384615384615
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 105010.482379863,
+      "total_return_pct": 5.010482379862995,
+      "total_trades": 3,
+      "stopped_out_trades": 1,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "ONGC": {
+    "momentum_crossover_5_20": {
+      "final_equity": 156974.71923150786,
+      "total_return_pct": 56.974719231507855,
+      "total_trades": 36,
+      "stopped_out_trades": 9,
+      "win_rate": 36.11111111111111
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 126255.46306909583,
+      "total_return_pct": 26.255463069095832,
+      "total_trades": 6,
+      "stopped_out_trades": 1,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "POWERGRID": {
+    "momentum_crossover_5_20": {
+      "final_equity": 110583.99159618001,
+      "total_return_pct": 10.583991596180015,
+      "total_trades": 42,
+      "stopped_out_trades": 5,
+      "win_rate": 47.61904761904761
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 111650.10807101731,
+      "total_return_pct": 11.650108071017312,
+      "total_trades": 3,
+      "stopped_out_trades": 0,
+      "win_rate": 100.0
+    }
+  },
+  "RELIANCE": {
+    "momentum_crossover_5_20": {
+      "final_equity": 132297.60355968866,
+      "total_return_pct": 32.29760355968867,
+      "total_trades": 37,
+      "stopped_out_trades": 6,
+      "win_rate": 40.54054054054054
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 105118.31347799358,
+      "total_return_pct": 5.118313477993579,
+      "total_trades": 6,
+      "stopped_out_trades": 2,
+      "win_rate": 50.0
+    }
+  },
+  "SBILIFE": {
+    "momentum_crossover_5_20": {
+      "final_equity": 117592.7439968468,
+      "total_return_pct": 17.592743996846796,
+      "total_trades": 36,
+      "stopped_out_trades": 3,
+      "win_rate": 44.44444444444444
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 107825.59639685412,
+      "total_return_pct": 7.825596396854118,
+      "total_trades": 3,
+      "stopped_out_trades": 0,
+      "win_rate": 66.66666666666666
+    }
+  },
+  "SBIN": {
+    "momentum_crossover_5_20": {
+      "final_equity": 137818.68007938028,
+      "total_return_pct": 37.818680079380286,
+      "total_trades": 37,
+      "stopped_out_trades": 4,
+      "win_rate": 40.54054054054054
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 100200.7378410747,
+      "total_return_pct": 0.20073784107470422,
+      "total_trades": 4,
+      "stopped_out_trades": 1,
+      "win_rate": 50.0
+    }
+  },
+  "SHRIRAMFIN": {
+    "momentum_crossover_5_20": {
+      "final_equity": 140044.8840829596,
+      "total_return_pct": 40.044884082959584,
+      "total_trades": 40,
+      "stopped_out_trades": 8,
+      "win_rate": 45.0
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 105229.79098207894,
+      "total_return_pct": 5.229790982078936,
+      "total_trades": 11,
+      "stopped_out_trades": 4,
+      "win_rate": 63.63636363636363
+    }
+  },
+  "SUNPHARMA": {
+    "momentum_crossover_5_20": {
+      "final_equity": 146445.13600068487,
+      "total_return_pct": 46.44513600068487,
+      "total_trades": 33,
+      "stopped_out_trades": 4,
+      "win_rate": 51.515151515151516
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 100000,
+      "total_return_pct": 0.0,
+      "total_trades": 0,
+      "stopped_out_trades": 0,
+      "win_rate": 0
+    }
+  },
+  "TATACONSUM": {
+    "momentum_crossover_5_20": {
+      "final_equity": 149899.15846717305,
+      "total_return_pct": 49.89915846717305,
+      "total_trades": 34,
+      "stopped_out_trades": 3,
+      "win_rate": 44.11764705882353
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 107987.0552206206,
+      "total_return_pct": 7.987055220620605,
+      "total_trades": 5,
+      "stopped_out_trades": 2,
+      "win_rate": 60.0
+    }
+  },
+  "TATASTEEL": {
+    "momentum_crossover_5_20": {
+      "final_equity": 199306.0105957723,
+      "total_return_pct": 99.30601059577229,
+      "total_trades": 34,
+      "stopped_out_trades": 7,
+      "win_rate": 41.17647058823529
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 127377.46751653944,
+      "total_return_pct": 27.377467516539443,
+      "total_trades": 12,
+      "stopped_out_trades": 7,
+      "win_rate": 41.66666666666667
+    }
+  },
+  "TCS": {
+    "momentum_crossover_5_20": {
+      "final_equity": 129445.21106604922,
+      "total_return_pct": 29.44521106604922,
+      "total_trades": 37,
+      "stopped_out_trades": 5,
+      "win_rate": 51.35135135135135
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 102684.82244021253,
+      "total_return_pct": 2.6848224402125345,
+      "total_trades": 2,
+      "stopped_out_trades": 1,
+      "win_rate": 50.0
+    }
+  },
+  "TECHM": {
+    "momentum_crossover_5_20": {
+      "final_equity": 130617.76077253147,
+      "total_return_pct": 30.617760772531472,
+      "total_trades": 36,
+      "stopped_out_trades": 4,
+      "win_rate": 47.22222222222222
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 107753.99021546528,
+      "total_return_pct": 7.753990215465281,
+      "total_trades": 6,
+      "stopped_out_trades": 4,
+      "win_rate": 33.33333333333333
+    }
+  },
+  "TITAN": {
+    "momentum_crossover_5_20": {
+      "final_equity": 134091.96188972407,
+      "total_return_pct": 34.09196188972407,
+      "total_trades": 35,
+      "stopped_out_trades": 9,
+      "win_rate": 42.857142857142854
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 118353.2427952337,
+      "total_return_pct": 18.3532427952337,
+      "total_trades": 7,
+      "stopped_out_trades": 3,
+      "win_rate": 57.14285714285714
+    }
+  },
+  "ULTRACEMCO": {
+    "momentum_crossover_5_20": {
+      "final_equity": 119348.47219496332,
+      "total_return_pct": 19.348472194963325,
+      "total_trades": 37,
+      "stopped_out_trades": 5,
+      "win_rate": 35.13513513513514
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 103083.83062186367,
+      "total_return_pct": 3.0838306218636715,
+      "total_trades": 6,
+      "stopped_out_trades": 4,
+      "win_rate": 33.33333333333333
+    }
+  },
+  "UPL": {
+    "momentum_crossover_5_20": {
+      "final_equity": 116559.42094219565,
+      "total_return_pct": 16.559420942195647,
+      "total_trades": 37,
+      "stopped_out_trades": 12,
+      "win_rate": 45.94594594594595
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 136302.30593529504,
+      "total_return_pct": 36.30230593529504,
+      "total_trades": 13,
+      "stopped_out_trades": 7,
+      "win_rate": 46.15384615384615
+    }
+  },
+  "WIPRO": {
+    "momentum_crossover_5_20": {
+      "final_equity": 137289.8172133928,
+      "total_return_pct": 37.28981721339279,
+      "total_trades": 36,
+      "stopped_out_trades": 6,
+      "win_rate": 44.44444444444444
+    },
+    "mean_reversion_6mo": {
+      "final_equity": 98532.60386222569,
+      "total_return_pct": -1.4673961377743108,
+      "total_trades": 9,
+      "stopped_out_trades": 6,
+      "win_rate": 33.33333333333333
+    }
+  }
+}

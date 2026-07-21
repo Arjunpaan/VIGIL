@@ -137,6 +137,90 @@ def main():
     )
     print(f"Total trades across entire portfolio: {total_trades_all}")
 
+def run_backtest_with_position_sizing(source, df, starting_equity=100000, risk_per_trade_pct=0.02, stop_loss_pct=0.05):
+    tokens = tokenize(source)
+    program = Parser(tokens).parse_program()
+    interp = Interpreter(program)
+
+    position = None          # None, or dict: {entry_price, units, stop_price}
+    trades = []
+    equity = starting_equity
+    equity_curve = []
+
+    for _, row in df.iterrows():
+        bar = {"close": row["Close"], "open": row["Open"], "high": row["High"], "low": row["Low"]}
+        signals = interp.run_bar(bar)
+
+        # Check stop-loss first, before processing new signals —
+        # a real risk system always checks "am I already about to lose too much"
+        # before considering a new trade.
+        if position is not None and row["Close"] <= position["stop_price"]:
+            exit_price = position["stop_price"] * (1 - SLIPPAGE_PCT / 100)
+            pnl = (exit_price - position["entry_price"]) * position["units"]
+            equity += pnl
+            trades.append({
+                "date": row["Date"], "pnl_pct": (pnl / (position["entry_price"] * position["units"])) * 100,
+                "win": 1 if pnl > 0 else 0, "exit_reason": "stop_loss"
+            })
+            position = None
+
+        elif "BUY" in signals and position is None:
+            entry_price = row["Close"] * (1 + SLIPPAGE_PCT / 100) * (1 + COMMISSION_PCT / 100)
+            stop_price = entry_price * (1 - stop_loss_pct)
+            risk_amount = equity * risk_per_trade_pct
+            stop_distance = entry_price - stop_price
+            units = risk_amount / stop_distance
+
+            position = {"entry_price": entry_price, "units": units, "stop_price": stop_price}
+
+        elif "SELL" in signals and position is not None:
+            exit_price = row["Close"] * (1 - SLIPPAGE_PCT / 100) * (1 - COMMISSION_PCT / 100)
+            pnl = (exit_price - position["entry_price"]) * position["units"]
+            equity += pnl
+            trades.append({
+                "date": row["Date"], "pnl_pct": (pnl / (position["entry_price"] * position["units"])) * 100,
+                "win": 1 if pnl > 0 else 0, "exit_reason": "signal"
+            })
+            position = None
+
+        if position is not None:
+            unrealized = (row["Close"] - position["entry_price"]) * position["units"]
+            equity_curve.append(equity + unrealized)
+        else:
+            equity_curve.append(equity)
+
+    return trades, equity_curve, equity
+
+def run_position_sized_portfolio():
+    import os
+    data_dir = "data"
+    csv_files = [f for f in os.listdir(data_dir) if f.endswith("_daily.csv")]
+
+    results = {}
+    for csv_file in csv_files:
+        ticker = csv_file.replace("_daily.csv", "")
+        df = pd.read_csv(os.path.join(data_dir, csv_file))
+        results[ticker] = {}
+
+        for strategy_name, strategy_source in STRATEGIES.items():
+            trades, equity_curve, final_equity = run_backtest_with_position_sizing(
+                strategy_source, df, starting_equity=100000, risk_per_trade_pct=0.02, stop_loss_pct=0.05
+            )
+            stop_outs = len([t for t in trades if t.get("exit_reason") == "stop_loss"])
+            results[ticker][strategy_name] = {
+                "final_equity": final_equity,
+                "total_return_pct": (final_equity - 100000) / 100000 * 100,
+                "total_trades": len(trades),
+                "stopped_out_trades": stop_outs,
+                "win_rate": (len([t for t in trades if t["win"] == 1]) / len(trades) * 100) if trades else 0
+            }
+            print(f"{ticker} / {strategy_name}: ₹{final_equity:,.0f} final ({results[ticker][strategy_name]['total_return_pct']:+.1f}%), {stop_outs} stop-outs")
+
+    with open("position_sized_results.json", "w") as f:
+        json.dump(results, f, indent=2)
+    print("\nExported position_sized_results.json")
+
 
 if __name__ == "__main__":
     main()
+    run_position_sized_portfolio()
