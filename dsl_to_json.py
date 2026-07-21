@@ -76,7 +76,7 @@ def compile_dsl_to_json(source_text, output_path):
 if __name__ == "__main__":
     source = """fast_ma = moving_average(close, 5)
 slow_ma = moving_average(close, 20)
-buy when fast_ma crosses_above slow_ma and close > 100
+buy when fast_ma crosses_above slow_ma 
 sell when fast_ma crosses_below slow_ma"""
 
     compile_dsl_to_json(source, "strategy.json")

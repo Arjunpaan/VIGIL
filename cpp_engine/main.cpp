@@ -25,6 +25,92 @@ struct BacktestResult {
     std::vector<DecayFlag> decay_flags;
 };
 
+struct PositionSizedTrade {
+    std::string date;
+    double pnl_pct;
+    int win;
+    std::string exit_reason;
+};
+
+struct PositionSizedResult {
+    double final_equity;
+    double total_return_pct;
+    int total_trades;
+    int stopped_out_trades;
+    double win_rate;
+};
+
+PositionSizedResult run_backtest_position_sized(
+    const std::vector<ASTNodePtr>& program,
+    const std::vector<PriceBar>& bars,
+    double starting_equity = 100000.0,
+    double risk_per_trade_pct = 0.02,
+    double stop_loss_pct = 0.05
+) {
+    Interpreter interp(program);
+
+    bool in_position = false;
+    double entry_price = 0.0, units = 0.0, stop_price = 0.0;
+    std::vector<PositionSizedTrade> trades;
+    double equity = starting_equity;
+
+    const double SLIPPAGE_PCT = 0.05;
+    const double COMMISSION_PCT = 0.03;
+
+    MarketDataFeed feed(bars);
+    while (feed.advance()) {
+        const PriceBar& bar_row = feed.current_bar();
+        std::map<std::string, double> bar = {
+            {"close", bar_row.close}, {"open", bar_row.open},
+            {"high", bar_row.high}, {"low", bar_row.low}
+        };
+
+        std::vector<std::string> signals = interp.run_bar(bar);
+        bool has_buy = std::find(signals.begin(), signals.end(), "BUY") != signals.end();
+        bool has_sell = std::find(signals.begin(), signals.end(), "SELL") != signals.end();
+
+        // Check stop-loss first, before any new signal — same priority as Python
+        if (in_position && bar_row.close <= stop_price) {
+            double exit_price = stop_price * (1 - SLIPPAGE_PCT / 100.0);
+            double pnl = (exit_price - entry_price) * units;
+            equity += pnl;
+            trades.push_back({bar_row.date, (pnl / (entry_price * units)) * 100.0, pnl > 0 ? 1 : 0, "stop_loss"});
+            in_position = false;
+        }
+        else if (has_buy && !in_position) {
+            entry_price = bar_row.close * (1 + SLIPPAGE_PCT / 100.0) * (1 + COMMISSION_PCT / 100.0);
+            stop_price = entry_price * (1 - stop_loss_pct);
+            double risk_amount = equity * risk_per_trade_pct;
+            double stop_distance = entry_price - stop_price;
+            units = risk_amount / stop_distance;
+            in_position = true;
+        }
+        else if (has_sell && in_position) {
+            double exit_price = bar_row.close * (1 - SLIPPAGE_PCT / 100.0) * (1 - COMMISSION_PCT / 100.0);
+            double pnl = (exit_price - entry_price) * units;
+            equity += pnl;
+            trades.push_back({bar_row.date, (pnl / (entry_price * units)) * 100.0, pnl > 0 ? 1 : 0, "signal"});
+            in_position = false;
+        }
+    }
+
+    int wins = 0, stop_outs = 0;
+    for (const auto& t : trades) {
+        wins += t.win;
+        if (t.exit_reason == "stop_loss") stop_outs++;
+    }
+
+    return {
+        equity,
+        (equity - starting_equity) / starting_equity * 100.0,
+        static_cast<int>(trades.size()),
+        stop_outs,
+        trades.empty() ? 0.0 : (static_cast<double>(wins) / trades.size() * 100.0)
+    };
+}
+
+
+
 BacktestResult run_backtest(const std::vector<ASTNodePtr>& program, const std::vector<PriceBar>& bars) {
     Interpreter interp(program);
 
@@ -148,9 +234,31 @@ int main() {
         };
     }
 
-    std::ofstream out("cpp_portfolio_results.json");
-    out << portfolio_results.dump(2);
+    std::cout << "\n--- Position-Sized Backtest ---" << std::endl;
+    json position_sized_results;
 
-    std::cout << "\nExported cpp_portfolio_results.json" << std::endl;
+    for (const auto& entry : fs::directory_iterator("data")) {
+        if (entry.path().extension() != ".csv") continue;
+        std::string filename = entry.path().filename().string();
+        std::string ticker = filename.substr(0, filename.find("_daily.csv"));
+
+        std::vector<PriceBar> bars = load_csv(entry.path().string());
+        PositionSizedResult result = run_backtest_position_sized(program, bars);
+
+        std::cout << ticker << ": Rs " << result.final_equity << " (" << result.total_return_pct
+                  << "%), " << result.stopped_out_trades << " stop-outs" << std::endl;
+
+        position_sized_results[ticker] = {
+            {"final_equity", result.final_equity},
+            {"total_return_pct", result.total_return_pct},
+            {"total_trades", result.total_trades},
+            {"stopped_out_trades", result.stopped_out_trades},
+            {"win_rate", result.win_rate}
+        };
+    }
+
+    std::ofstream ps_out("cpp_position_sized_results.json");
+    ps_out << position_sized_results.dump(2);
+    std::cout << "\nExported cpp_position_sized_results.json" << std::endl;
     return 0;
 }
