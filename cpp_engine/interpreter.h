@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <vector>
 #include <string>
+#include "rsi.h"
 
 class Interpreter {
 private:
@@ -18,6 +19,9 @@ private:
     std::map<std::string, double> current_bar;
     std::map<std::string, MovingAverage> stateful_objects;
     std::map<std::string, LookbackValue> lookback_objects;
+    std::map<std::string, RSI> rsi_objects;
+
+
 
     std::optional<double> eval_expr(const ASTNodePtr& node, const std::map<std::string, double>& bar, const std::string& var_name) {
         if (auto n = std::dynamic_pointer_cast<NumberLiteral>(node)) {
@@ -48,6 +52,19 @@ private:
 
                 if (!source.has_value()) return std::nullopt;
                 return stateful_objects.at(var_name).update(source.value());
+            }
+
+            if (n->name == "rsi") {
+                std::optional<double> source = eval_expr(n->args[0], bar, var_name);
+                auto window_node = std::dynamic_pointer_cast<NumberLiteral>(n->args[1]);
+                int window = static_cast<int>(window_node->value);
+
+                if (rsi_objects.find(var_name) == rsi_objects.end()) {
+                    rsi_objects.emplace(var_name, RSI(window));
+                }
+
+                if (!source.has_value()) return std::nullopt;
+                return rsi_objects.at(var_name).update(source.value());
             }
 
             if (n->name == "price_n_days_ago") {

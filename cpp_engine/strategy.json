@@ -1,10 +1,10 @@
 [
   {
     "type": "Assignment",
-    "name": "fast_ma",
+    "name": "rsi_val",
     "expression": {
       "type": "FunctionCall",
-      "name": "moving_average",
+      "name": "rsi",
       "args": [
         {
           "type": "Identifier",
@@ -12,25 +12,7 @@
         },
         {
           "type": "NumberLiteral",
-          "value": 5.0
-        }
-      ]
-    }
-  },
-  {
-    "type": "Assignment",
-    "name": "slow_ma",
-    "expression": {
-      "type": "FunctionCall",
-      "name": "moving_average",
-      "args": [
-        {
-          "type": "Identifier",
-          "name": "close"
-        },
-        {
-          "type": "NumberLiteral",
-          "value": 20.0
+          "value": 14.0
         }
       ]
     }
@@ -41,12 +23,12 @@
       "type": "BinaryOp",
       "left": {
         "type": "Identifier",
-        "name": "fast_ma"
+        "name": "rsi_val"
       },
-      "operator": "crosses_above",
+      "operator": "<",
       "right": {
-        "type": "Identifier",
-        "name": "slow_ma"
+        "type": "NumberLiteral",
+        "value": 30.0
       }
     }
   },
@@ -56,12 +38,12 @@
       "type": "BinaryOp",
       "left": {
         "type": "Identifier",
-        "name": "fast_ma"
+        "name": "rsi_val"
       },
-      "operator": "crosses_below",
+      "operator": ">",
       "right": {
-        "type": "Identifier",
-        "name": "slow_ma"
+        "type": "NumberLiteral",
+        "value": 70.0
       }
     }
   }
