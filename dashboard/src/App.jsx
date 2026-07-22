@@ -1,3 +1,4 @@
+import LiveView from './LiveView';
 import { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './App.css';
@@ -62,6 +63,7 @@ function App() {
           {tickers.length} INSTRUMENTS TRACKED
         </div>
       </header>
+      <LiveView />
 
       {/* Portfolio overview */}
       <section className="vigil-panel" style={{ animationDelay: '0ms' }}>
